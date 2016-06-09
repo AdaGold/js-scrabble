@@ -1,4 +1,4 @@
-var Scrabble = require(__dirname + "/../index.js");
+var Scrabble = require("../scrabble.js");
 
 describe('Hello World', function() {
   var scrabble = new Scrabble();
