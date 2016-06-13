@@ -3,7 +3,7 @@ We are going to rebuild our Scrabble project using our knew knowledge of JavaScr
 
 ## Project Expectations
 
-From the project root, you should be able to execute all of your test by running `jasmine-node .`. Each function you create should be a part of the `Scrabble` function (acting as a class).
+From the project root, you should be able to execute all of your test by running `npm test`. Each function you create should be a part of the `Scrabble` function (acting as a class).
 
 ## Baseline Requirements
 Review the requirements and come up with a "plan of action" for how you want to approach this problem.
