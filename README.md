@@ -60,32 +60,18 @@ Create a new `Player` object. The object should have the following functions:
 ### Optional Enhancements
 - Create a `TileBag` object that includes functionality that allows us to drawTiles and determine the remaining tiles.
 Beginning Tile Quantities:
-  - A: 9
-  - B: 2
-  - C: 2
-  - D: 4
-  - E: 12
-  - F: 2
-  - G: 3
-  - H: 2
-  - I: 9
-  - J: 1
-  - K: 1
-  - L: 4
-  - M: 2
-  - N: 6
-  - O: 8
-  - P: 2
-  - Q: 1
-  - R: 6
-  - S: 4
-  - T: 6
-  - U: 4
-  - V: 2
-  - W: 2
-  - X: 1
-  - Y: 2
-  - Z: 1
+
+| Tiles per letter | Letters                   |
+|:-----------------|:--------------------------|
+| 1                | J, K, Q, X, Z             |
+| 2                | B, C, F, H, M, P, V, W, Y |
+| 3                | G                         |
+| 4                | D, L, S, U                |
+| 6                | N, R, T                   |
+| 8                | O                         |
+| 9                | A, I                      |
+| 12               | E                         |
+
 - Create a `Dictionary` object that includes a function for searching a list of words to determine if a given word is a valid word.
 - Create a `Board` object that has a matrix (array of arrays) of tile places. Check if a word can be played on a given tile place in a certain direction.
 
