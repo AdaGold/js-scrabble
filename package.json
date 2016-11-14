@@ -1,14 +1,8 @@
 {
-  "name": "js-scrabble-two",
+  "name": "js-scrabble",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "clear; jasmine-node --verbose spec/"
-  },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "jasmine-node": "^1.14.5"
-  }
 }
