@@ -3,7 +3,7 @@ We are going to rebuild our Scrabble project using our knew knowledge of JavaScr
 
 ## Project Expectations
 
-From the project root, you should be able to execute all of your test by running `jasmine-node .`. Each function you create should be a part of the `Scrabble` function (acting as a class).
+From the project root, you should be able to execute your code with `node scrabble.js`.  Each function you create should be a part of the `Scrabble` function (acting as a class).
 
 ## Baseline Requirements
 Review the requirements and come up with a "plan of action" for how you want to approach this problem.
@@ -26,19 +26,26 @@ The baseline repository contains an empty node project which contains the starte
 ## Wave 1
 
 ### Primary Requirements
-Create the following functions within the `Scrabble` module. You should create at least 8 tests that test this new code.
+Create the following functions within the `Scrabble` module.  
 - `score(word)`: returns the total score value for the given word. The word is input as a string (case insensitive). The chart below shows the point value for a given letter.
 - `highestScoreFrom(arrayOfWords)`: returns **the word in the array with the highest score**.
     - Note that it’s better to use fewer tiles, so if the top score is tied between multiple words, pick the one with the fewest letters.
     - Note that there is a bonus (50 points) for using all seven letters. If the top score is tied between multiple words and one used all seven letters, choose the one with seven letters over the one with fewer tiles.
     - If the there are multiple words that are the same score and same length, pick the first one in supplied list.
 
+You should write your own code using the Scrabble module and test the methods manually to ensure they work properly.  
+
+You can run your `scrabble.js` file by typing:
+
+```bash
+$  node scrabble.js
+```
 
 
 ## Wave 2
 
 ### Primary Requirements
-Create a new `Player` object with a minimum of 11 test. The object should have the following functions:
+Create a new `Player` object. The object should have the following functions:
 
 - Constructor: Called when you use `new Player(name)`, sets up an instance with the instance variable `name` assigned
 - `name`: property which returns the value of the player's name
@@ -81,4 +88,5 @@ Beginning Tile Quantities:
   - Z: 1
 - Create a `Dictionary` object that includes a function for searching a list of words to determine if a given word is a valid word.
 - Create a `Board` object that has a matrix (array of arrays) of tile places. Check if a word can be played on a given tile place in a certain direction.
-- Include a minimum of 20 tests between the `TileBag`, `Dictionary` and `Board` objects.
+
+
