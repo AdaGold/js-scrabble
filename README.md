@@ -52,7 +52,7 @@ Create a new `Player` object. The object should have the following functions:
 - `plays`: property which returns an Array of the words played by the player
 - `play(word)`: Function which will adds the input word to the `plays` Array
     - Returns false if player has already won
-- `total_score()`: Function which sums up and returns the score of the players words
+- `totalScore()`: Function which sums up and returns the score of the players words
 - `hasWon()`: Function with logic to determine if the player has over 100 points, returns `true`, otherwise returns 'false'
 - `highestScoringWord()`: Function which returns the highest scoring word the user has played.
 - `highestWordScore()`: Function which returns the `highestScoringWord` score.
