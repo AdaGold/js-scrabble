@@ -3,29 +3,35 @@ console.log("before main function")
 
 var Scrabble = function() {
 
-  var playWord = function(word) {
+  var splitWord = function(word) {
+    // add some data validation here later
     var wordString = word.toUpperCase();
-    var wordArray = Array.from(wordString);
-    return wordArray;
+    var letterArray = Array.from(wordString);
+    return letterArray;
   }
+
+  var score = function(word) {
+
+
+  }
+
   // var wordSeven = "jejunum"
 
-  // // remember to call upcase on input
   // // chose to use object as these are not so much returning a actions as being acted upon
 
-  // var letterValues = new Object();
+  var letterValues = new Object();
 
-  // letterValues.score_one = ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"];
-  // letterValues.score_two = ["D", "G"];
-  // letterValues.score_three = ["B", "C", "M", "P"];
-  // letterValues.score_four = ["F", "H", "V", "W", "Y"];
-  // letterValues.score_five = ["K"];
-  // letterValues.score_eight = ["J", "X"];
-  // letterValues.score_ten = ["Q", "Z"];
+  letterValues.score_one = ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"];
+  letterValues.score_two = ["D", "G"];
+  letterValues.score_three = ["B", "C", "M", "P"];
+  letterValues.score_four = ["F", "H", "V", "W", "Y"];
+  letterValues.score_five = ["K"];
+  letterValues.score_eight = ["J", "X"];
+  letterValues.score_ten = ["Q", "Z"];
 
   // console.log('within main function W00t! W00t!');
 
-  console.log(playWord("banna"));
+  console.log(splitWord("banna"));
 }
 
 // console.log(Scrabble.letterValues.score_one);
