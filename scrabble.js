@@ -26,6 +26,13 @@ Scrabble.prototype.score = function(word) {
 
 }
 
+Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
+  // if there is a tie, prefer the highest scorring word made with the fewest tiles
+  // if there is a tie, prefer the highest scoring word made with all 7 tiles
+  // 
+  // return highestScoreFrom;
+}
+
 
 // // chose to use object as these are not so much returning a actions as being acted upon
 // you need the semicolon for object literals
@@ -40,10 +47,11 @@ Scrabble.prototype.letterScores = {
 };
 
 var wordSeven = "jejunum";
+var wordThree = "wee";
 var oneScrabble = new Scrabble();
 
 console.log(oneScrabble.score(wordSeven));
-
+console.log(oneScrabble.score(wordThree));
 
 
 // var myScrabble = new Scrabble();
