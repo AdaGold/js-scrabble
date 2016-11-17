@@ -1,8 +1,38 @@
-var Scrabble = function() {};
+'use strict';
+console.log("before main function")
 
-// YOUR CODE HERE
-Scrabble.prototype.helloWorld = function() {
-  return 'hello world!';
-};
+var Scrabble = function() {
+
+  var playWord = function(word) {
+    var wordString = word.toUpperCase();
+    var wordArray = Array.from(wordString);
+    return wordArray;
+  }
+  // var wordSeven = "jejunum"
+
+  // // remember to call upcase on input
+  // // chose to use object as these are not so much returning a actions as being acted upon
+
+  // var letterValues = new Object();
+
+  // letterValues.score_one = ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"];
+  // letterValues.score_two = ["D", "G"];
+  // letterValues.score_three = ["B", "C", "M", "P"];
+  // letterValues.score_four = ["F", "H", "V", "W", "Y"];
+  // letterValues.score_five = ["K"];
+  // letterValues.score_eight = ["J", "X"];
+  // letterValues.score_ten = ["Q", "Z"];
+
+  // console.log('within main function W00t! W00t!');
+
+  console.log(playWord("banna"));
+}
+
+// console.log(Scrabble.letterValues.score_one);
+console.log('after main function')
+
+var myScrabble = new Scrabble();
+
+// do stuff here to test
 
 module.exports = Scrabble;
