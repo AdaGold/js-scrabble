@@ -1,8 +1,57 @@
 var Scrabble = function() {};
 
-// YOUR CODE HERE
-Scrabble.prototype.helloWorld = function() {
-  return 'hello world!';
+
+
+ var points = {A: 1,
+  B: 3,
+  C: 3,
+  D: 2,
+  E: 1,
+  F: 4,
+  G: 2,
+  H: 4,
+  I: 1,
+  J: 8,
+  K: 5,
+  L: 1,
+  M: 3,
+  N: 1,
+  O: 1,
+  P: 3,
+  Q: 10,
+  R: 1,
+  S: 1,
+  T: 1,
+  U: 1,
+  V: 4,
+  W: 4,
+  X: 8,
+  Y: 4,
+  Z: 10
+}
+
+
+Scrabble.prototype.score = function(word) {
+  var score = 0;
+  var tiles = 0;
+
+  var letterArray = word.toUpperCase().split("");
+
+    for (let i of letterArray ){
+      score += points[i];
+      tiles += 1
+    };
+    if(tiles == 7){
+      score += 50;
+    };
+     console.log(score);
 };
 
+Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
+  arrayOfWords.foreach
+}
+
 module.exports = Scrabble;
+
+var socks = new Scrabble
+socks.score("binding")
