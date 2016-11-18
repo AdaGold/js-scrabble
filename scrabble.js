@@ -20,6 +20,7 @@ Scrabble.prototype.score = function(word) {
     var score = this.letterScores[letter];
     // add score to running total
     wordScore += score;
+
   }
   // return score for word
   return wordScore;
@@ -27,7 +28,34 @@ Scrabble.prototype.score = function(word) {
 }
 
 Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
+  var highScore = 0;
+  var highestScoringWord = null; // using 0 should I use null instead?
+
+  for (var i = 0; i < arrayOfWords.length; i++) {
+
+    var word = arrayOfWords[i];
+    var currentWordScore = this.score(word);
+
+    if (currentWordScore == highScore){
+      if (word.length == 7 && highestScoringWord.length != 7){
+        highestScoringWord = word;
+        // if there is a word that uses all seven tiles award that word an additional 50 pts
+        highScore = currentWordScore + 50;
+      } else if (word.length < highestScoringWord.length) {
+        highestScoringWord = word;
+        highScore = currentWordScore; 
+      }
+    }
+
+    if (currentWordScore > highScore)  {
+      highScore = currentWordScore;
+      highestScoringWord = word;
+    }
+    
+  }
+  return highestScoringWord;
   // if there is a tie, prefer the highest scorring word made with the fewest tiles
+  
   // if there is a tie, prefer the highest scoring word made with all 7 tiles
   // 
   // return highestScoreFrom;
@@ -49,9 +77,12 @@ Scrabble.prototype.letterScores = {
 var wordSeven = "jejunum";
 var wordThree = "wee";
 var oneScrabble = new Scrabble();
+var arrayWords = ["Ty", "Bacon", "piecrust", "tea", "eiecrust"];
 
 console.log(oneScrabble.score(wordSeven));
 console.log(oneScrabble.score(wordThree));
+console.log(oneScrabble.highestScoreFrom(arrayWords));
+
 
 
 // var myScrabble = new Scrabble();
