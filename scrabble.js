@@ -32,7 +32,7 @@ Scrabble.prototype.score = function(word) {
 
 Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
   var highScore = 0;
-  var highestScoringWord = null; // using 0 should I use null instead?
+  var bigScoreWord = null; // using 0 should I use null instead?
 
   for (var i = 0; i < arrayOfWords.length; i++) {
 
@@ -40,24 +40,27 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
     var currentWordScore = this.score(word);
 
     if (currentWordScore == highScore){
-      if (word.length == 7 && highestScoringWord.length != 7){
-        highestScoringWord = word;
+      if (word.length == 7 && bigScoreWord.length != 7){
+        bigScoreWord = word;
         // if there is a word that uses all seven tiles award that word an additional 50 pts
         highScore = currentWordScore + 50;
          // if there is a tie, prefer the highest scorring word made with the fewest tiles
-      } else if (word.length < highestScoringWord.length) {
-        highestScoringWord = word;
+      } else if (word.length < bigScoreWord.length) {
+        bigScoreWord = word;
         highScore = currentWordScore; 
       }
     }
 
     if (currentWordScore > highScore)  {
       highScore = currentWordScore;
-      highestScoringWord = word;
+      bigScoreWord = word;
     }
     
   }
-  return highestScoringWord;
+  // this returns the highest scoring word played in the game
+  return bigScoreWord;
+
+
 }
 
 
@@ -78,13 +81,14 @@ Scrabble.prototype.letterScores = {
 var Player = function(name) {
   this.name = name;
   this.plays = [];
-  // this.highestScoringWord = null;
+  // this.bigScoreWord = null;
   // this.highestWordScore = 0;
   // this.tiles = [];
 }
 
 Player.prototype.play = function (word) {
   if (this.hasWon() == true) {
+    console.log("You Won!");
     return false;
   } else {
     this.plays.push(word);
@@ -108,6 +112,11 @@ Player.prototype.totalScore = function () {
      runningScore += currentWordScore;
   }
   return runningScore;
+
+}
+// this returns the highest scoring word of a single player
+Player.prototype.highestScoringWord = function() {
+  var highestScoringWord = null;
 
 }
 
