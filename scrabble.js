@@ -147,9 +147,11 @@ Player.prototype.highestScoringWord = function(arrayOfWords) {
   // this returns the score of highest scoring word played in the game
   return highestScoringWord;
 
-
 }
 
+Player.prototype.highestWordScore = function(highestScoringWord) {
+  
+}
 
 
 // ########### TESTING CODE ##########
