@@ -44,14 +44,22 @@ Scrabble.prototype.score = function(word) {
     if(tiles == 7){
       score += 50;
     };
-     console.log(score);
+     return score;
 };
 
 Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
-  arrayOfWords.foreach
-}
+  var wordHash = {};
+  for (let i of arrayOfWords) {
+    wordHash[i] = this.score(i);
+    var word = Object.values(wordHash)
+    console.log(word, this.score(i));
+    if (word.length != word.length) {
+    return word.key(word.max);
+  }
+  }
+};
 
 module.exports = Scrabble;
 
 var socks = new Scrabble
-socks.score("binding")
+socks.highestScoreFrom(["binding", "boy", "hunt"])
