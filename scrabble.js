@@ -75,19 +75,59 @@ Scrabble.prototype.letterScores = {
 // ####################################
 // ####### PLAYER OBJECT & FXNS  ######
 // ####################################
-var Player = function() {};
+var Player = function(name) {
+  this.name = name;
+  this.plays = [];
+  // this.highestScoringWord = null;
+  // this.highestWordScore = 0;
+  // this.tiles = [];
+}
+
+Player.prototype.play = function (word) {
+  if (this.hasWon() == true) {
+    return false;
+  } else {
+    this.plays.push(word);
+    return true;
+  }
+
+};
+
+Player.prototype.hasWon = function(){
+  // TODO jm-rives finsih later
+  return false;
+};
+
+Player.prototype.totalScore = function () {
+  var newScrabble = new Scrabble();
+  var runningScore = 0;
+  // sums the score of players words
+  for (var i = 0; i < this.plays.length; i++) {
+     var word = this.plays[i];
+     var currentWordScore = newScrabble.score(word);
+     runningScore += currentWordScore;
+  }
+  return runningScore;
+
+}
+
 
 // ########### TESTING CODE ##########
 var wordSeven = "jejunum";
 var wordThree = "wee";
 var oneScrabble = new Scrabble();
 var arrayWords = ["Ty", "Bacon", "piecrust", "tea", "eiecrust"];
-
+// ########### Scrabble TESTING CODE ##########
 console.log(oneScrabble.score(wordSeven));
 console.log(oneScrabble.score(wordThree));
 console.log(oneScrabble.highestScoreFrom(arrayWords));
-
-
+// ########### Player TESTING CODE ##########
+var myPlayer = new Player("Smokey");
+myPlayer.play("bacon");
+myPlayer.play("bacon");
+myPlayer.play("bacon");
+console.log(myPlayer.totalScore());
+console.log(myPlayer);
 
 // var myScrabble = new Scrabble();
 
