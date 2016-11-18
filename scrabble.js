@@ -57,7 +57,7 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
     }
     
   }
-  // this returns the highest scoring word played in the game
+  // this returns the score of highest scoring word played in the game
   return bigScoreWord;
 
 
@@ -81,6 +81,7 @@ Scrabble.prototype.letterScores = {
 var Player = function(name) {
   this.name = name;
   this.plays = [];
+  this.playerScrabble = new Scrabble;
   // this.bigScoreWord = null;
   // this.highestWordScore = 0;
   // this.tiles = [];
@@ -115,10 +116,40 @@ Player.prototype.totalScore = function () {
 
 }
 // this returns the highest scoring word of a single player
-Player.prototype.highestScoringWord = function() {
-  var highestScoringWord = null;
+Player.prototype.highestScoringWord = function(arrayOfWords) {
+  var highScore = 0;
+  var highestScoringWord = null; // this should be an array element of type string
+
+  
+  for (var i = 0; i < arrayOfWords.length; i++) {
+
+    var word = arrayOfWords[i];
+    var currentWordScore = this.playerScrabble.score(word);
+
+    if (currentWordScore == highScore){
+      if (word.length == 7 && highestScoringWord.length != 7){
+        highestScoringWord = word;
+        // if there is a word that uses all seven tiles award that word an additional 50 pts
+        // highScore = currentWordScore + 50;
+         // if there is a tie, prefer the highest scorring word made with the fewest tiles
+      } else if (word.length < highestScoringWord.length) {
+        highestScoringWord = word;
+        // highestScoringWord = currentWordScore; 
+      }
+    }
+
+    if (currentWordScore > highScore)  {
+      highScore = currentWordScore;
+      highestScoringWord = word;
+    }
+    
+  }
+  // this returns the score of highest scoring word played in the game
+  return highestScoringWord;
+
 
 }
+
 
 
 // ########### TESTING CODE ##########
@@ -127,16 +158,20 @@ var wordThree = "wee";
 var oneScrabble = new Scrabble();
 var arrayWords = ["Ty", "Bacon", "piecrust", "tea", "eiecrust"];
 // ########### Scrabble TESTING CODE ##########
+console.log("Scrabble TESTING CODE");
 console.log(oneScrabble.score(wordSeven));
 console.log(oneScrabble.score(wordThree));
 console.log(oneScrabble.highestScoreFrom(arrayWords));
 // ########### Player TESTING CODE ##########
+console.log("Player TESTING CODE");
 var myPlayer = new Player("Smokey");
 myPlayer.play("bacon");
 myPlayer.play("bacon");
 myPlayer.play("bacon");
 console.log(myPlayer.totalScore());
 console.log(myPlayer);
+console.log("########")
+console.log(myPlayer.highestScoringWord(arrayWords));
 
 // var myScrabble = new Scrabble();
 
