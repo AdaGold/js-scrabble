@@ -1,6 +1,9 @@
 'use strict';
 
 var Scrabble = function() {};
+// ####################################
+// ####### SCORING/ WORD parsing ######
+// ####################################
 
 Scrabble.prototype.splitWord = function(word) {
   // add some data validation here later
@@ -69,7 +72,12 @@ Scrabble.prototype.letterScores = {
   J: 8, X: 8,
   Q: 10, Z: 10 // NO SEMICOLON!
 };
+// ####################################
+// ####### PLAYER OBJECT & FXNS  ######
+// ####################################
+var Player = function() {};
 
+// ########### TESTING CODE ##########
 var wordSeven = "jejunum";
 var wordThree = "wee";
 var oneScrabble = new Scrabble();
