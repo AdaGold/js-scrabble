@@ -41,6 +41,7 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
         highestScoringWord = word;
         // if there is a word that uses all seven tiles award that word an additional 50 pts
         highScore = currentWordScore + 50;
+         // if there is a tie, prefer the highest scorring word made with the fewest tiles
       } else if (word.length < highestScoringWord.length) {
         highestScoringWord = word;
         highScore = currentWordScore; 
@@ -54,11 +55,6 @@ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
     
   }
   return highestScoringWord;
-  // if there is a tie, prefer the highest scorring word made with the fewest tiles
-  
-  // if there is a tie, prefer the highest scoring word made with all 7 tiles
-  // 
-  // return highestScoreFrom;
 }
 
 
