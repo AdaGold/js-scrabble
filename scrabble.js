@@ -32,7 +32,7 @@ Scrabble.prototype.score = function(word) {
 
 Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
   var highScore = 0;
-  var bigScoreWord = null; // using 0 should I use null instead?
+  var bigScoreWord = null; 
 
   for (var i = 0; i < arrayOfWords.length; i++) {
 
@@ -100,7 +100,12 @@ Player.prototype.play = function (word) {
 
 Player.prototype.hasWon = function(){
   // TODO jm-rives finsih later
-  return false;
+  if (this.totalScore() >= 100) {
+    return true;
+  } else {
+    return false;
+  }
+  
 };
 
 Player.prototype.totalScore = function () {
@@ -116,14 +121,17 @@ Player.prototype.totalScore = function () {
 
 }
 // this returns the highest scoring word of a single player
-Player.prototype.highestScoringWord = function(arrayOfWords) {
+Player.prototype.highestScoringWord = function() {
   var highScore = 0;
+
+  // I don't think this is going to eventually be an array?
+  // Variables with singular names usually aren't arrays
   var highestScoringWord = null; // this should be an array element of type string
 
   
-  for (var i = 0; i < arrayOfWords.length; i++) {
+  for (var i = 0; i < this.plays.length; i++) {
 
-    var word = arrayOfWords[i];
+    var word = this.plays[i];
     var currentWordScore = this.playerScrabble.score(word);
 
     if (currentWordScore == highScore){
@@ -145,12 +153,23 @@ Player.prototype.highestScoringWord = function(arrayOfWords) {
     
   }
   // this returns the score of highest scoring word played in the game
+
+  // Your comment above says this returns a score, but this
+  // variable isn't a number
   return highestScoringWord;
 
 }
 
-Player.prototype.highestWordScore = function(highestScoringWord) {
-  
+// What does this function do? Write a comment here.
+// What is the type of highestScoringWord? Document it here.
+Player.prototype.highestWordScore = function() {
+  var playerScrabble = new Scrabble();
+  // // // var bestWordScore = this.playerScrabble.score(highestScoringWord);
+  // return highestWordScore;
+
+  // so if highestScoringWord is a string, this will return
+  // the score for that word.
+  return playerScrabble.score(this.highestScoringWord());
 }
 
 
@@ -158,22 +177,28 @@ Player.prototype.highestWordScore = function(highestScoringWord) {
 var wordSeven = "jejunum";
 var wordThree = "wee";
 var oneScrabble = new Scrabble();
-var arrayWords = ["Ty", "Bacon", "piecrust", "tea", "eiecrust"];
+var arrayWords = ["Ty", "Bacon", "piecrust", "tea", "eiecrust", "zqzqzqz"];
+
 // ########### Scrabble TESTING CODE ##########
 console.log("Scrabble TESTING CODE");
 console.log(oneScrabble.score(wordSeven));
 console.log(oneScrabble.score(wordThree));
+console.log("##### This is Line 187")
 console.log(oneScrabble.highestScoreFrom(arrayWords));
+
 // ########### Player TESTING CODE ##########
 console.log("Player TESTING CODE");
 var myPlayer = new Player("Smokey");
 myPlayer.play("bacon");
 myPlayer.play("bacon");
 myPlayer.play("bacon");
+myPlayer.play("zqzqzqzzqzq");
 console.log(myPlayer.totalScore());
 console.log(myPlayer);
 console.log("########")
-console.log(myPlayer.highestScoringWord(arrayWords));
+console.log("Player highest scoring word " + myPlayer.highestScoringWord(arrayWords));
+console.log("Player highest word score " + myPlayer.highestWordScore());
+console.log("Has the player won? " + myPlayer.hasWon());
 
 // var myScrabble = new Scrabble();
 
