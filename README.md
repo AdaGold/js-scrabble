@@ -1,6 +1,8 @@
 # Scrabble with JavaScript!
 We are going to rebuild our Scrabble project using our knew knowledge of JavaScript.
 
+This is an individual [Stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
+
 ## Project Expectations
 
 From the project root, you should be able to execute your code with `node scrabble.js`.  Each function you create should be a part of the `Scrabble` function (acting as a class).
