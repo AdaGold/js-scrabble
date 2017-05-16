@@ -1,76 +1,70 @@
 var Scrabble = function() {};
 
 var scoreChart = {
-  1: ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"],
-  2: ["D", "G"],
-  3: ["B", "C", "M", "P"],
-  4: ["F", "H", "V", "W", "Y"],
-  5: ["K"],
-  8: ["J", "X"],
-  10: ["Q", "Z"]
+  A: 1,
+  E: 1,
+  I: 1,
+  O: 1,
+  U: 1,
+  L: 1,
+  N: 1,
+  R: 1,
+  S: 1,
+  T: 1,
+  D: 2,
+  G: 2,
+  B: 3,
+  C: 3,
+  M: 3,
+  P: 3,
+  F: 4,
+  H: 4,
+  V: 4,
+  W: 4,
+  Y: 4,
+  K: 5,
+  J: 8,
+  X: 8,
+  Q: 10,
+  Z: 10
 };
 
 var arrayOfWords = [];
 
-var score = function(word) {
+Scrabble.prototype.score = function(word) {
   word = word.toUpperCase();
   var points = 0;
-  if (word.length >= 7){
+  if (word.length == 7){
     points += 50;
   }
   for (var i = 0, len = word.length; i < len; i++) {
-    switch (true) {
-      case scoreChart[1].includes(word[i]):
-        points += 1;
-        break;
-      case scoreChart[2].includes(word[i]):
-        points += 2;
-        break;
-      case scoreChart[3].includes(word[i]):
-        points += 3;
-        break;
-      case scoreChart[4].includes(word[i]):
-        points += 4;
-        break;
-      case scoreChart[5].includes(word[i]):
-        points += 5;
-        break;
-      case scoreChart[8].includes(word[i]):
-        points += 8;
-        break;
-      case scoreChart[10].includes(word[i]):
-        points += 10;
-        break;
+      points += scoreChart[word[i]];
     }
-  }
   arrayOfWords.push(word)
-  // console.log(arrayOfWords)
   return points;
 }
 
-var highestScoreFrom = function(arrayOfWords) {
+ Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
   var highestScoringWord;
   var highestScore = 0;
   for (var i = 0; i < arrayOfWords.length; i++) {
-    if (score(arrayOfWords[i]) > highestScore) {
+    if (this.score(arrayOfWords[i]) > highestScore) {
       highestScoringWord = arrayOfWords[i];
-      highestScore = score(arrayOfWords[i]);
-    } else if (score(arrayOfWords[i]) == highestScore) {
+      highestScore = this.score(arrayOfWords[i]);
+    } else if (this.score(arrayOfWords[i]) == highestScore) {
       if (highestScoringWord.length == 7) {
-        return highestScoringWord;
       } else if (arrayOfWords[i].length == 7) {
         highestScoringWord = arrayOfWords[i];
-        highestScore = score(arrayOfWords[i]);
+        highestScore = this.score(arrayOfWords[i]);
       } else if (arrayOfWords.length < highestScoringWord.length){
         highestScoringWord = arrayOfWords[i];
-        highestScore = score(arrayOfWords[i]);
+        highestScore = this.score(arrayOfWords[i]);
       }
     }
   }
   return highestScoringWord;
 }
 
-// console.log(highestScoreFrom(["CAT", "DOG", "AAAAAA", "AAAAD" ]));
 
 Scrabble.prototype.helloWorld = function() {
   return 'hello world!';
@@ -78,6 +72,18 @@ Scrabble.prototype.helloWorld = function() {
 
 module.exports = Scrabble;
 
-myScrabble = new Scrabble;
-
+myScrabble = new Scrabble();
 console.log(myScrabble.helloWorld());
+//
+console.log(myScrabble.score("CAT"));
+
+console.log(myScrabble.score("DOG"));
+
+console.log(myScrabble.score("ZZZZZZ"));
+
+console.log(myScrabble.score("AAAAADC"));
+
+console.log(myScrabble.highestScoreFrom([ "AAAAACD", "QQQQQQQ", "ZZZZZZ"]));
+
+
+var Player = function() {};
