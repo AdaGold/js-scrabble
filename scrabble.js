@@ -1,17 +1,5 @@
 var Scrabble = function() {};
 
-// YOUR CODE HERE
-Scrabble.prototype.helloWorld = function() {
-  return 'hello world!';
-};
-
-module.exports = Scrabble;
-
-
-myScrabble = new Scrabble
-console.log(myScrabble.helloWorld());
-
-
 var scoreChart = {
   1: ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"],
   2: ["D", "G"],
@@ -22,6 +10,7 @@ var scoreChart = {
   10: ["Q", "Z"]
 };
 
+var arrayOfWords = [];
 
 var score = function(word) {
   word = word.toUpperCase();
@@ -54,24 +43,41 @@ var score = function(word) {
         break;
     }
   }
+  arrayOfWords.push(word)
+  // console.log(arrayOfWords)
   return points;
 }
 
-// console.log(scoreChart[1].includes("E"));
+var highestScoreFrom = function(arrayOfWords) {
+  var highestScoringWord;
+  var highestScore = 0;
+  for (var i = 0; i < arrayOfWords.length; i++) {
+    if (score(arrayOfWords[i]) > highestScore) {
+      highestScoringWord = arrayOfWords[i];
+      highestScore = score(arrayOfWords[i]);
+    } else if (score(arrayOfWords[i]) == highestScore) {
+      if (highestScoringWord.length == 7) {
+        return highestScoringWord;
+      } else if (arrayOfWords[i].length == 7) {
+        highestScoringWord = arrayOfWords[i];
+        highestScore = score(arrayOfWords[i]);
+      } else if (arrayOfWords.length < highestScoringWord.length){
+        highestScoringWord = arrayOfWords[i];
+        highestScore = score(arrayOfWords[i]);
+      }
+    }
+  }
+  return highestScoringWord;
+}
 
-console.log(score("CAT"));
-console.log(score("ZZZ"));
-console.log(score("zzZ"));
-console.log(score("ZFFHW"));
-console.log(score("AAAAAAA"));
-console.log(score("aaaaaaa"));
+// console.log(highestScoreFrom(["CAT", "DOG", "AAAAAA", "AAAAD" ]));
 
+Scrabble.prototype.helloWorld = function() {
+  return 'hello world!';
+};
 
-// Letter	Value
-// A, E, I, O, U, L, N, R, S, T	1
-// D, G	2
-// B, C, M, P	3
-// F, H, V, W, Y	4
-// K	5
-// J, X	8
-// Q, Z	10
+module.exports = Scrabble;
+
+myScrabble = new Scrabble;
+
+console.log(myScrabble.helloWorld());
