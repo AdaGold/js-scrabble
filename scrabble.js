@@ -19,7 +19,6 @@ var scoreHelper = function (word) {
   for (var i = 0, len = word.length; i < len; i++) {
       points += scoreChart[word[i]];
     }
-  arrayOfWords.push(word)
   return points;
 };
 
@@ -52,15 +51,18 @@ var highestWordScoreHelper = function (arrayOfWords) {
 // SCRABBLE METHODS
 
 
-var Scrabble = function() {};
+var Scrabble = function() {
+  this.arrayOfWords = [];
+};
 
 Scrabble.prototype.score = function(word) {
+  this.arrayOfWords.push(word);
   return scoreHelper(word);
 };
 
 
- Scrabble.prototype.highestScoreFrom = function(arrayOfWords) {
-   return highestScoringWordHelper(arrayOfWords);
+Scrabble.prototype.highestScoreFrom = function() {
+  return highestScoringWordHelper(this.arrayOfWords);
 };
 
 
@@ -70,24 +72,32 @@ Scrabble.prototype.helloWorld = function() {
 
 // PLAYER METHODS
 
-var Player = function (name) {
+var Player = function (name, game) {
   this.name = name;
   this.playerWords = [];
-}
+  this.game = game;
+};
 
 Player.prototype.plays = function () {
   console.log("My turn!");
 };
 
+
+// refactor to include a save word to game method
 Player.prototype.play = function (word) {
-  console.log(this.hasWon())
   if (this.hasWon()) {
     return console.log("Cannot play that word", this.name, "has already won!");
   } else {
     this.playerWords.push(word);
+    this.saveWordToGameWordArray(word);
     console.log(this.playerWords);
   }
 };
+
+
+Player.prototype.saveWordToGameWordArray = function (word) {
+  this.game.arrayOfWords.push(word);
+}
 
 Player.prototype.totalScore = function () {
   var playerScore = 0;
@@ -119,28 +129,33 @@ module.exports = Scrabble;
 
 myScrabble = new Scrabble();
 
-p = new Player("Kelly");
+p = new Player("Kelly", myScrabble);
+q = new Player("Kevin", myScrabble);
 
 console.log(p.name);
+console.log(q.name);
 
-p.plays();
+
+// p.plays();
+// p.play("Hello");
+// p.play("World");
+// console.log(p.totalScore());
+// p.play("cat");
+// console.log(p.totalScore());
+// p.play("ZZZZZ");
+// console.log(p.totalScore());
+// p.play("AA");
+// console.log(p.totalScore());
+// p.play("ZZZZZ");
+// console.log(p.totalScore());
 p.play("Hello");
-p.play("World");
-console.log(p.totalScore());
-p.play("cat");
-console.log(p.totalScore());
-p.play("ZZZZZ");
-console.log(p.totalScore());
-p.play("AA");
-console.log(p.totalScore());
-p.play("ZZZZZ");
-console.log(p.totalScore());
-p.play("ZZZZZ");
-console.log(p.totalScore());
-p.play("ZZZZZ");
-console.log(p.totalScore());
-console.log(p.highestScoringWord());
-console.log(p.highestWordScore());
-p.play("ZZZZZZZ");
-console.log(p.highestScoringWord());
-console.log(p.highestWordScore());
+p.play("WorldZ");
+// p.play("ZZZZZZZ");
+// console.log(p.highestScoringWord());
+// console.log(p.highestWordScore());
+q.play("Hello");
+q.play("world");
+console.log(q.totalScore());
+console.log(myScrabble.helloWorld());
+console.log(myScrabble.score("cat"));
+console.log(myScrabble.highestScoreFrom());
