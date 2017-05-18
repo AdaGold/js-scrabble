@@ -42,9 +42,9 @@ Scrabble.score = function(word) {
   return total;
 };
 
-Scrabble.score("WORD");
-
-var words = ["cat", "RSTCMRS", "word", "zz", "bat", "kkkk", "rstcmrr"];
+// Scrabble.score("WORD");
+//
+// var words = ["cat", "RSTCMRS", "word", "zz", "bat", "kkkk", "rstcmrr"];
 
 Scrabble.highestScoringFrom = function(array) {
   highest = array[0];
@@ -124,37 +124,37 @@ Player.prototype.highestWordScore = function(){
 //
 // };
 
-var TileBag = function() {
-  this.letters = {
-    'e': 12,
-    'a': 9,
-    'i': 9,
-    'o': 8,
-    'n': 6,
-    'r': 6,
-    't': 6,
-    'd': 4,
-    'l': 4,
-    's': 4,
-    'u': 4,
-    'g': 3,
-    'b': 2,
-    'c': 2,
-    'f': 2,
-    'h': 2,
-    'm': 2,
-    'p': 2,
-    'v': 2,
-    'w': 2,
-    'y': 2,
-    'j': 1,
-    'k': 1,
-    'q': 1,
-    'x': 1,
-    'z': 1
-  };
-
-};
+// var TileBag = function() {
+//   this.letters = {
+//     'e': 12,
+//     'a': 9,
+//     'i': 9,
+//     'o': 8,
+//     'n': 6,
+//     'r': 6,
+//     't': 6,
+//     'd': 4,
+//     'l': 4,
+//     's': 4,
+//     'u': 4,
+//     'g': 3,
+//     'b': 2,
+//     'c': 2,
+//     'f': 2,
+//     'h': 2,
+//     'm': 2,
+//     'p': 2,
+//     'v': 2,
+//     'w': 2,
+//     'y': 2,
+//     'j': 1,
+//     'k': 1,
+//     'q': 1,
+//     'x': 1,
+//     'z': 1
+//   };
+//
+// };
 
 // TileBag.prototype.drawtiles = function(playerTiles) {
 //   tilesNeeded = 7 - playerTiles;
