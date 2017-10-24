@@ -5,7 +5,7 @@ This is an individual [Stage 1](https://github.com/Ada-Developers-Academy/pedago
 
 ## Project Expectations
 
-From the project root, you should be able to execute your code with `node scrabble.js`.  Each function you create should be a part of the `Scrabble` function (acting as a class).
+From the project root, you should be able to execute your code with `node scrabble.js`.  Each function you create should be a method of the `Scrabble` class.
 
 ## Baseline Requirements
 Review the requirements and come up with a "plan of action" for how you want to approach this problem.
@@ -76,5 +76,3 @@ Beginning Tile Quantities:
 
 - Create a `Dictionary` object that includes a function for searching a list of words to determine if a given word is a valid word.
 - Create a `Board` object that has a matrix (array of arrays) of tile places. Check if a word can be played on a given tile place in a certain direction.
-
-
