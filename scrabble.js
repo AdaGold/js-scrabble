@@ -1,8 +1,7 @@
-var Scrabble = function() {};
 
-// YOUR CODE HERE
-Scrabble.prototype.helloWorld = function() {
-  return 'hello world!';
-};
+
+class Scrabble {
+
+}
 
 module.exports = Scrabble;
