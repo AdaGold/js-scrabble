@@ -4,5 +4,9 @@
   "description": "",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^2.8.0",
+    "jasmine-expect": "^3.8.1"
+  }
 }
