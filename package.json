@@ -8,5 +8,6 @@
   "dependencies": {
     "jasmine": "^2.8.0",
     "jasmine-expect": "^3.8.1"
-  }
+  },
+  "scripts": { "test": "jasmine" }
 }
