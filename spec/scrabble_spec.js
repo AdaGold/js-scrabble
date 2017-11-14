@@ -1,6 +1,10 @@
 const Scrabble = require('../scrabble');
 
 describe('score', function() {
+  it ('is defined', function() {
+    expect(Scrabble.score).toBeDefined();
+  });
+
   it ('correctly scores simple words', function() {
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('cat')).toBe(5);
@@ -23,16 +27,20 @@ describe('score', function() {
     expect(Scrabble.score('DoG')).toBe(5);
   });
 
-  it ("doesn't allow words > 7 letters", function() {
+  it ('does not allow words > 7 letters', function() {
     expect(function() { Scrabble.score('abcdefgh'); }).toThrow();
   });
 
-  it ("doesn't allow empty words", function() {
+  it ('does not allow empty words', function() {
     expect(function() { Scrabble.score(''); }).toThrow();
   });
 });
 
 describe('highestScoreFrom', function() {
+  it ('is defined', function() {
+    expect(Scrabble.highestScoreFrom).toBeDefined();
+  });
+
   it ('throws if no words were passed', function() {
     expect(function() { Scrabble.highestScoreFrom([]); }).toThrow();
     expect(function() { Scrabble.highestScoreFrom('not array'); }).toThrow();
@@ -53,8 +61,8 @@ describe('highestScoreFrom', function() {
   });
 
   it ('if tied, prefer a word with 7 letters', function() {
-    loser = 'zzzzzz';
-    winner = 'iiiiddd';
+    const loser = 'zzzzzz';
+    const winner = 'iiiiddd';
 
     // Check score assumptions
     expect(Scrabble.score(loser)).toBe(60);
@@ -90,6 +98,10 @@ describe('highestScoreFrom', function() {
 });
 
 describe('Player', function() {
+  it ('is defined', function() {
+    expect(Scrabble.Player).toBeDefined();
+  });
+
   describe('Constructor', function() {
     it('Creates a new player', function() {
       let name = 'test name';
@@ -125,7 +137,7 @@ describe('Player', function() {
       expect(player.plays.length).toBe(0);
     });
 
-    it ("Returns false and doesn't update plays if the player has already won", function() {
+    it ('Returns false and does not update plays if the player has already won', function() {
       let player = new Scrabble.Player('test player');
       expect(player.play('zzzzzzz')).toBeTruthy(); // +120 pts
       expect(player.plays.length).toBe(1);
@@ -137,12 +149,12 @@ describe('Player', function() {
   });
 
   describe ('totalScore', function() {
-    it ("Is zero if the player hasn't played anything", function() {
+    it ('Is zero if the player has not played anything', function() {
       let player = new Scrabble.Player('test player');
       expect(player.totalScore()).toBe(0);
     });
 
-    it ("Is updated by play", function() {
+    it ('Is updated by play', function() {
       let player = new Scrabble.Player('test player');
       expect(player.totalScore()).toBe(0);
       player.play('dog');
@@ -201,7 +213,7 @@ describe('Player', function() {
   });
 
   describe('highestWordScore', function() {
-    it('returns the highest scoring word played', function() {
+    it('returns the score of the highest scoring word played', function() {
       let player = new Scrabble.Player('test player');
       player.play('cat');
       player.play('zzzz');
