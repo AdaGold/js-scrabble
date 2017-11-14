@@ -1,6 +1,10 @@
 const Scrabble = require('../scrabble');
 
 describe('score', function() {
+  it ('is defined', function() {
+    expect(Scrabble.score).toBeDefined();
+  });
+
   it ('correctly scores simple words', function() {
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('cat')).toBe(5);
@@ -33,6 +37,10 @@ describe('score', function() {
 });
 
 describe('highestScoreFrom', function() {
+  it ('is defined', function() {
+    expect(Scrabble.highestScoreFrom).toBeDefined();
+  });
+
   it ('throws if no words were passed', function() {
     expect(function() { Scrabble.highestScoreFrom([]); }).toThrow();
     expect(function() { Scrabble.highestScoreFrom('not array'); }).toThrow();
@@ -90,6 +98,10 @@ describe('highestScoreFrom', function() {
 });
 
 describe('Player', function() {
+  it ('is defined', function() {
+    expect(Scrabble.Player).toBeDefined();
+  });
+
   describe('Constructor', function() {
     it('Creates a new player', function() {
       let name = 'test name';
