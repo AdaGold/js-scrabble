@@ -27,11 +27,11 @@ describe('score', function() {
     expect(Scrabble.score('DoG')).toBe(5);
   });
 
-  it ("doesn't allow words > 7 letters", function() {
+  it ('does not allow words > 7 letters', function() {
     expect(function() { Scrabble.score('abcdefgh'); }).toThrow();
   });
 
-  it ("doesn't allow empty words", function() {
+  it ('does not allow empty words', function() {
     expect(function() { Scrabble.score(''); }).toThrow();
   });
 });
@@ -137,7 +137,7 @@ describe('Player', function() {
       expect(player.plays.length).toBe(0);
     });
 
-    it ("Returns false and doesn't update plays if the player has already won", function() {
+    it ('Returns false and does not update plays if the player has already won', function() {
       let player = new Scrabble.Player('test player');
       expect(player.play('zzzzzzz')).toBeTruthy(); // +120 pts
       expect(player.plays.length).toBe(1);
@@ -149,12 +149,12 @@ describe('Player', function() {
   });
 
   describe ('totalScore', function() {
-    it ("Is zero if the player hasn't played anything", function() {
+    it ('Is zero if the player has not played anything', function() {
       let player = new Scrabble.Player('test player');
       expect(player.totalScore()).toBe(0);
     });
 
-    it ("Is updated by play", function() {
+    it ('Is updated by play', function() {
       let player = new Scrabble.Player('test player');
       expect(player.totalScore()).toBe(0);
       player.play('dog');
