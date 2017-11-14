@@ -61,8 +61,8 @@ describe('highestScoreFrom', function() {
   });
 
   it ('if tied, prefer a word with 7 letters', function() {
-    loser = 'zzzzzz';
-    winner = 'iiiiddd';
+    const loser = 'zzzzzz';
+    const winner = 'iiiiddd';
 
     // Check score assumptions
     expect(Scrabble.score(loser)).toBe(60);
@@ -213,7 +213,7 @@ describe('Player', function() {
   });
 
   describe('highestWordScore', function() {
-    it('returns the highest scoring word played', function() {
+    it('returns the score of the highest scoring word played', function() {
       let player = new Scrabble.Player('test player');
       player.play('cat');
       player.play('zzzz');
