@@ -6,8 +6,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eslint-plugin-jasmine": "^2.9.1",
     "jasmine": "^2.8.0",
     "jasmine-expect": "^3.8.1"
   },
-  "scripts": { "test": "jasmine" }
+  "scripts": {
+    "test": "jasmine"
+  }
 }
