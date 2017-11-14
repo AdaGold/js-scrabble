@@ -1,7 +1,14 @@
+const Scrabble = {
+  score: function(word) {
+    // TODO: implement score
+  }
 
+  // TODO: add the highestScoreFrom method
 
-class Scrabble {
+};
 
-}
+Scrabble.Player = class {
+  // TODO: implement the Player class
+};
 
 module.exports = Scrabble;
