@@ -49,15 +49,26 @@ const Scrabble = {
   },
 
   highestScoreFrom(wordsArray) {
-    if (wordsArray.length === 0 || wordsArray !== Array) {
+    if (wordsArray.length === 0 || wordsArray.constructor !== Array) {
       throw new Error('no words to compare score');
     }
+    let scores = wordsArray.map(word => this.score(word));
+    let maxIndex = 0;
+    let max = scores[0];
+    for (let i = 0; i < wordsArray.length; i += 1) {
+      if (scores[i] > max) {
+        max = scores[i];
+        maxIndex = i;
+      }
+    }
+    return wordsArray[maxIndex];
   },
 
 
 };
 
-console.log(Scrabble.score('win'));
+// console.log(Scrabble.score('win'));
+// console.log(Scrabble.highestScoreFrom(['dog']));
 
 Scrabble.Player = class {
   // TODO: implement the Player class
