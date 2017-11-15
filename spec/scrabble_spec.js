@@ -73,7 +73,7 @@ describe('highestScoreFrom', function() {
     expect(Scrabble.highestScoreFrom([winner, loser])).toBe(winner);
   });
 
-  xit ('if tied and no word has 7 letters, prefers the word with fewer letters', function() {
+  it ('if tied and no word has 7 letters, prefers the word with fewer letters', function() {
     // Check score assumptions
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('goat')).toBe(5);

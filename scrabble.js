@@ -55,16 +55,20 @@ const Scrabble = {
     let scores = wordsArray.map(word => this.score(word));
     let maxIndex = 0;
     let max = scores[0];
+    let winningWord = wordsArray[0];
     for (let i = 0; i < wordsArray.length; i += 1) {
       if (scores[i] > max) {
         max = scores[i];
+        winningWord = wordsArray[i];
         maxIndex = i;
       } else if (scores[i] === max) {
         if (wordsArray[i].length === 7) {
           max = scores[i];
+          winningWord = wordsArray[i];
           maxIndex = i;
-        } else if (wordsArray[i].length < max.length && max.length !== 7) {
+        } else if ((wordsArray[i].length < winningWord.length) && (winningWord.length !== 7)) {
           max = scores[i];
+          winningWord = wordsArray[i];
           maxIndex = i;
         }
       }
