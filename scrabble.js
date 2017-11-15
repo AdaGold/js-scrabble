@@ -49,7 +49,9 @@ const Scrabble = {
   },
 
   highestScoreFrom(wordsArray) {
-
+    if (wordsArray.length === 0 || wordsArray !== Array) {
+      throw new Error('no words to compare score');
+    }
   },
 
 

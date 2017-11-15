@@ -41,7 +41,7 @@ describe('highestScoreFrom', function() {
     expect(Scrabble.highestScoreFrom).toBeDefined();
   });
 
-  xit ('throws if no words were passed', function() {
+  it ('throws if no words were passed', function() {
     expect(function() { Scrabble.highestScoreFrom([]); }).toThrow();
     expect(function() { Scrabble.highestScoreFrom('not array'); }).toThrow();
   });
