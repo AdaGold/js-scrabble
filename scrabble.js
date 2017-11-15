@@ -29,6 +29,10 @@ const LETTERVALUES = {
 
 const Scrabble = {
   score(word) {
+    if (word.length > 7 || word.length < 1) {
+      throw new Error('word must be between 1 and 7 letters');
+    }
+
     let wordArray = word.toUpperCase().split('');
     // let sum;
     // (wordArray.length == 7) ? sum = 50 : sum = 0;

@@ -21,17 +21,17 @@ describe('score', function() {
     }).toThrow();
   });
 
-  xit ('handles all upper- and lower-case letters', function() {
+  it ('handles all upper- and lower-case letters', function() {
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('DOG')).toBe(5);
     expect(Scrabble.score('DoG')).toBe(5);
   });
 
-  xit ('does not allow words > 7 letters', function() {
+  it ('does not allow words > 7 letters', function() {
     expect(function() { Scrabble.score('abcdefgh'); }).toThrow();
   });
 
-  xit ('does not allow empty words', function() {
+  it ('does not allow empty words', function() {
     expect(function() { Scrabble.score(''); }).toThrow();
   });
 });
