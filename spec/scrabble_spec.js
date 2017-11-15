@@ -220,9 +220,11 @@ describe('Player', function() {
       expect(player.highestWordScore()).toBe(40);
     });
 
-    xit('throws an error if no words have been played', function() {
+    it('throws an error if no words have been played', function() {
       let player = new Scrabble.Player('test player');
       expect(() => { player.highestWordScore() }).toThrow();
     });
   });
 });
+
+describe 'Tilebag'

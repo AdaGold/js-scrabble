@@ -90,7 +90,7 @@ Scrabble.Player = class {
     if (this.hasWon() === true) {
       return false;
     }
-    if (!(word.match(/^[a-zA-Z0-9]{1,7}$/))) {
+    if (!(word.match(/^[a-zA-Z]{1,7}$/))) {
       throw new Error('must be a word between 1 and 7 letters');
     }
     this.plays.push(word);
@@ -115,6 +115,14 @@ Scrabble.Player = class {
     }
     return Scrabble.highestScoreFrom(this.plays);
   }
+
+  highestWordScore() {
+    if (this.plays.length === 0) {
+      throw new Error('no words played');
+    }
+    return Scrabble.score(this.highestScoringWord());
+  }
 };
+
 
 module.exports = Scrabble;
