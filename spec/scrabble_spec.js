@@ -83,7 +83,7 @@ describe('highestScoreFrom', function() {
     expect(Scrabble.highestScoreFrom(['goat', 'dog'])).toBe('dog');
   });
 
-  xit ('returns the first word of a tie with same letter count', function() {
+  it ('returns the first word of a tie with same letter count', function() {
     // Check score assumptions
     expect(Scrabble.score('i')).toBe(1);
     expect(Scrabble.score('dog')).toBe(5);
