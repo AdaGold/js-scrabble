@@ -56,9 +56,17 @@ const Scrabble = {
     let maxIndex = 0;
     let max = scores[0];
     for (let i = 0; i < wordsArray.length; i += 1) {
-      if ((scores[i] > max) || (scores[i] === max && wordsArray[i].length === 7)) {
+      if (scores[i] > max) {
         max = scores[i];
         maxIndex = i;
+      } else if (scores[i] === max) {
+        if (wordsArray[i].length === 7) {
+          max = scores[i];
+          maxIndex = i;
+        } else if (wordsArray[i].length < max.length && max.length !== 7) {
+          max = scores[i];
+          maxIndex = i;
+        }
       }
     }
     return wordsArray[maxIndex];
