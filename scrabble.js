@@ -34,7 +34,11 @@ const Scrabble = {
     // (wordArray.length == 7) ? sum = 50 : sum = 0;
     let sum = (wordArray.length === 7) ? 50 : 0;
     wordArray.forEach((letter) => {
-      sum += LETTERVALUES[letter];
+      if (letter in LETTERVALUES) {
+        sum += LETTERVALUES[letter];
+      } else {
+        throw new Error('word contains invalid characters');
+      }
     });
 
     return sum;

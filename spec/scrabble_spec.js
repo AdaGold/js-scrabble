@@ -15,7 +15,7 @@ describe('score', function() {
     expect(Scrabble.score('academy')).toBe(65);
   });
 
-  xit ('throws on bad characters', function() {
+  it ('throws on bad characters', function() {
     expect(function () {
       Scrabble.score('char^');
     }).toThrow();
