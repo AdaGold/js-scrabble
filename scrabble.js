@@ -48,6 +48,10 @@ const Scrabble = {
     return sum;
   },
 
+  highestScoreFrom(wordsArray) {
+
+  },
+
 
 };
 

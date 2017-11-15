@@ -36,21 +36,21 @@ describe('score', function() {
   });
 });
 
-xdescribe('highestScoreFrom', function() {
+describe('highestScoreFrom', function() {
   it ('is defined', function() {
     expect(Scrabble.highestScoreFrom).toBeDefined();
   });
 
-  it ('throws if no words were passed', function() {
+  xit ('throws if no words were passed', function() {
     expect(function() { Scrabble.highestScoreFrom([]); }).toThrow();
     expect(function() { Scrabble.highestScoreFrom('not array'); }).toThrow();
   });
 
-  it ('returns the only word in a length-1 array', function() {
+  xit ('returns the only word in a length-1 array', function() {
     expect(Scrabble.highestScoreFrom(['dog'])).toBe('dog');
   });
 
-  it ('returns the highest word if there are two words', function() {
+  xit ('returns the highest word if there are two words', function() {
     // Check score assumptions
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('pig')).toBe(6);
@@ -60,7 +60,7 @@ xdescribe('highestScoreFrom', function() {
     expect(Scrabble.highestScoreFrom(['pig', 'dog'])).toBe('pig');
   });
 
-  it ('if tied, prefer a word with 7 letters', function() {
+  xit ('if tied, prefer a word with 7 letters', function() {
     const loser = 'zzzzzz';
     const winner = 'iiiiddd';
 
@@ -73,7 +73,7 @@ xdescribe('highestScoreFrom', function() {
     expect(Scrabble.highestScoreFrom([winner, loser])).toBe(winner);
   });
 
-  it ('if tied and no word has 7 letters, prefers the word with fewer letters', function() {
+  xit ('if tied and no word has 7 letters, prefers the word with fewer letters', function() {
     // Check score assumptions
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('goat')).toBe(5);
@@ -83,7 +83,7 @@ xdescribe('highestScoreFrom', function() {
     expect(Scrabble.highestScoreFrom(['goat', 'dog'])).toBe('dog');
   });
 
-  it ('returns the first word of a tie with same letter count', function() {
+  xit ('returns the first word of a tie with same letter count', function() {
     // Check score assumptions
     expect(Scrabble.score('i')).toBe(1);
     expect(Scrabble.score('dog')).toBe(5);
