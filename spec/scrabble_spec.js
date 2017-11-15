@@ -60,7 +60,7 @@ describe('highestScoreFrom', function() {
     expect(Scrabble.highestScoreFrom(['pig', 'dog'])).toBe('pig');
   });
 
-  xit ('if tied, prefer a word with 7 letters', function() {
+  it ('if tied, prefer a word with 7 letters', function() {
     const loser = 'zzzzzz';
     const winner = 'iiiiddd';
 
