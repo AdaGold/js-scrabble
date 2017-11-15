@@ -75,15 +75,46 @@ const Scrabble = {
     }
     return wordsArray[maxIndex];
   },
-
-
 };
 
-// console.log(Scrabble.score('win'));
-// console.log(Scrabble.highestScoreFrom(['dog']));
-
 Scrabble.Player = class {
-  // TODO: implement the Player class
+  constructor(name) {
+    if (!name) {
+      throw new Error('player must have a name');
+    }
+    this.name = name;
+    this.plays = [];
+  }
+
+  play(word) {
+    if (this.hasWon() === true) {
+      return false;
+    }
+    if (!(word.match(/^[a-zA-Z0-9]{1,7}$/))) {
+      throw new Error('must be a word between 1 and 7 letters');
+    }
+    this.plays.push(word);
+    return Scrabble.score(word);
+  }
+
+  totalScore() {
+    let totalScore = 0;
+    this.plays.forEach((play) => {
+      totalScore += Scrabble.score(play);
+    });
+    return totalScore;
+  }
+
+  hasWon() {
+    return (this.totalScore() > 99);
+  }
+
+  highestScoringWord() {
+    if (this.plays.length === 0) {
+      throw new Error('no words played');
+    }
+    return Scrabble.highestScoreFrom(this.plays);
+  }
 };
 
 module.exports = Scrabble;

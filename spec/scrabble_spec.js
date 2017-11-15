@@ -97,7 +97,7 @@ describe('highestScoreFrom', function() {
   });
 });
 
-xdescribe('Player', function() {
+describe('Player', function() {
   it ('is defined', function() {
     expect(Scrabble.Player).toBeDefined();
   });
@@ -220,7 +220,7 @@ xdescribe('Player', function() {
       expect(player.highestWordScore()).toBe(40);
     });
 
-    it('throws an error if no words have been played', function() {
+    xit('throws an error if no words have been played', function() {
       let player = new Scrabble.Player('test player');
       expect(() => { player.highestWordScore() }).toThrow();
     });
