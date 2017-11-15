@@ -30,10 +30,10 @@ const LETTERVALUES = {
 const Scrabble = {
   score(word) {
     let wordArray = word.toUpperCase().split('');
-    let sum = 0;
+    // let sum;
+    // (wordArray.length == 7) ? sum = 50 : sum = 0;
+    let sum = (wordArray.length === 7) ? 50 : 0;
     wordArray.forEach((letter) => {
-      // console.log(letter);
-      // console.log(LETTERVALUES[letter]);
       sum += LETTERVALUES[letter];
     });
 
