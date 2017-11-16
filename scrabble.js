@@ -149,5 +149,4 @@ Scrabble.Player = class {
 };
 
 
-
 module.exports = Scrabble;

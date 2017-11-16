@@ -109,12 +109,18 @@ describe('TileBag', function() {
   });
 
   describe('drawTile', function() {
-    it('returns a random tile', function() {
+    it('decreases the tilebag count by 1', function() {
       let tilebag = new Scrabble.TileBag();
       let tile = tilebag.drawTile();
       // TODO: Find a way to test this:
       // expect(tile.).toBe();
       expect(tilebag.tiles.length).toBe(97);
+    });
+    it('returns a tile from the tiles', function() {
+      let tilebag = new Scrabble.TileBag();
+      let tile = tilebag.drawTile();
+      // TODO: Find a way to test this:
+      // expect(tile.).toBe();
     });
   });
 });
