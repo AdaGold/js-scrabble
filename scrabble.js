@@ -87,13 +87,16 @@ Scrabble.TileBag = class {
   static setTiles() {
     const tiles = [];
     Object.keys(LETTERVALUES).forEach((letter) => {
-      let quantity = LETTERVALUES[letter][1];
+      const quantity = LETTERVALUES[letter][1];
       for (let i = 0; i < quantity; i += 1) {
         tiles.push(letter);
       }
     });
-    console.log(tiles);
     return tiles;
+  }
+
+  drawTile() {
+    return this.tiles.splice(Math.floor(Math.random() * this.tiles.length), 1);
   }
 };
 

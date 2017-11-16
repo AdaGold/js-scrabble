@@ -107,6 +107,16 @@ describe('TileBag', function() {
       expect(tilebag.tiles.length).toBe(98);
     });
   });
+
+  describe('drawTile', function() {
+    it('returns a random tile', function() {
+      let tilebag = new Scrabble.TileBag();
+      let tile = tilebag.drawTile();
+      // TODO: Find a way to test this:
+      // expect(tile.).toBe();
+      expect(tilebag.tiles.length).toBe(97);
+    });
+  });
 });
 
 describe('Player', function() {
