@@ -97,6 +97,18 @@ describe('highestScoreFrom', function() {
   });
 });
 
+describe('TileBag', function() {
+  it ('is defined', function() {
+    expect(Scrabble.TileBag).toBeDefined();
+  });
+  describe('Constructor', function() {
+    it('creates a set of tiles', function() {
+      let tilebag = new Scrabble.TileBag();
+      expect(tilebag.tiles.length).toBe(98);
+    });
+  });
+});
+
 describe('Player', function() {
   it ('is defined', function() {
     expect(Scrabble.Player).toBeDefined();
@@ -226,5 +238,3 @@ describe('Player', function() {
     });
   });
 });
-
-describe 'Tilebag'

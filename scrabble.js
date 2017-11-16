@@ -1,30 +1,30 @@
 const LETTERVALUES = {
-  A: 1,
-  B: 3,
-  C: 3,
-  D: 2,
-  E: 1,
-  F: 4,
-  G: 2,
-  H: 4,
-  I: 1,
-  J: 8,
-  K: 5,
-  L: 1,
-  M: 3,
-  N: 1,
-  O: 1,
-  P: 3,
-  Q: 10,
-  R: 1,
-  S: 1,
-  T: 1,
-  U: 1,
-  V: 4,
-  W: 4,
-  X: 8,
-  Y: 4,
-  Z: 10,
+  A: [1, 9],
+  B: [3, 2],
+  C: [3, 2],
+  D: [2, 4],
+  E: [1, 12],
+  F: [4, 2],
+  G: [2, 3],
+  H: [4, 2],
+  I: [1, 9],
+  J: [8, 1],
+  K: [5, 1],
+  L: [1, 4],
+  M: [3, 2],
+  N: [1, 6],
+  O: [1, 8],
+  P: [3, 2],
+  Q: [10, 1],
+  R: [1, 6],
+  S: [1, 4],
+  T: [1, 6],
+  U: [1, 4],
+  V: [4, 2],
+  W: [4, 2],
+  X: [8, 1],
+  Y: [4, 2],
+  Z: [10, 1],
 };
 
 const Scrabble = {
@@ -33,13 +33,13 @@ const Scrabble = {
       throw new Error('word must be between 1 and 7 letters');
     }
 
-    let wordArray = word.toUpperCase().split('');
-    // let sum;
-    // (wordArray.length == 7) ? sum = 50 : sum = 0;
+    const wordArray = word.toUpperCase().split('');
+
     let sum = (wordArray.length === 7) ? 50 : 0;
+
     wordArray.forEach((letter) => {
       if (letter in LETTERVALUES) {
-        sum += LETTERVALUES[letter];
+        sum += LETTERVALUES[letter][0];
       } else {
         throw new Error('word contains invalid characters');
       }
@@ -52,10 +52,12 @@ const Scrabble = {
     if (wordsArray.length === 0 || wordsArray.constructor !== Array) {
       throw new Error('no words to compare score');
     }
-    let scores = wordsArray.map(word => this.score(word));
+    const scores = wordsArray.map(word => this.score(word));
+
     let maxIndex = 0;
     let max = scores[0];
     let winningWord = wordsArray[0];
+
     for (let i = 0; i < wordsArray.length; i += 1) {
       if (scores[i] > max) {
         max = scores[i];
@@ -77,6 +79,25 @@ const Scrabble = {
   },
 };
 
+Scrabble.TileBag = class {
+  constructor() {
+    this.tiles = Scrabble.TileBag.setTiles();
+  }
+
+  static setTiles() {
+    const tiles = [];
+    Object.keys(LETTERVALUES).forEach((letter) => {
+      let quantity = LETTERVALUES[letter][1];
+      for (let i = 0; i < quantity; i += 1) {
+        tiles.push(letter);
+      }
+    });
+    console.log(tiles);
+    return tiles;
+  }
+};
+
+
 Scrabble.Player = class {
   constructor(name) {
     if (!name) {
@@ -87,7 +108,7 @@ Scrabble.Player = class {
   }
 
   play(word) {
-    if (this.hasWon() === true) {
+    if (this.hasWon()) {
       return false;
     }
     if (!(word.match(/^[a-zA-Z]{1,7}$/))) {
@@ -106,7 +127,7 @@ Scrabble.Player = class {
   }
 
   hasWon() {
-    return (this.totalScore() > 99);
+    return (this.totalScore() >= 100);
   }
 
   highestScoringWord() {
@@ -123,6 +144,7 @@ Scrabble.Player = class {
     return Scrabble.score(this.highestScoringWord());
   }
 };
+
 
 
 module.exports = Scrabble;
