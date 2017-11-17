@@ -48,34 +48,31 @@ const Scrabble = {
     return sum;
   },
 
-  highestScoreFrom(wordsArray) {
-    if (wordsArray.length === 0 || wordsArray.constructor !== Array) {
+  highestScoreFrom(words) {
+    if (words.length === 0 || words.constructor !== Array) {
       throw new Error('no words to compare score');
     }
-    const scores = wordsArray.map(word => this.score(word));
 
-    let maxIndex = 0;
-    let max = scores[0];
-    let winningWord = wordsArray[0];
+    let max = this.score(words[0]);
+    let winningWord = words[0];
 
-    for (let i = 0; i < wordsArray.length; i += 1) {
-      if (scores[i] > max) {
-        max = scores[i];
-        winningWord = wordsArray[i];
-        maxIndex = i;
-      } else if (scores[i] === max) {
-        if (wordsArray[i].length === 7) {
-          max = scores[i];
-          winningWord = wordsArray[i];
-          maxIndex = i;
-        } else if ((wordsArray[i].length < winningWord.length) && (winningWord.length !== 7)) {
-          max = scores[i];
-          winningWord = wordsArray[i];
-          maxIndex = i;
+    words.forEach((word) => {
+      const score = this.score(word);
+
+      if (score > max) {
+        max = score;
+        winningWord = word;
+      } else if (score === max) {
+        if (word.length === 7) {
+          max = score;
+          winningWord = word;
+        } else if (word.length < winningWord.length && winningWord.length !== 7) {
+          max = score;
+          winningWord = word;
         }
       }
-    }
-    return wordsArray[maxIndex];
+    });
+    return winningWord;
   },
 };
 
