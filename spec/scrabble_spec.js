@@ -97,6 +97,34 @@ describe('highestScoreFrom', function() {
   });
 });
 
+describe('TileBag', function() {
+  it ('is defined', function() {
+    expect(Scrabble.TileBag).toBeDefined();
+  });
+  describe('Constructor', function() {
+    it('creates a set of tiles', function() {
+      let tilebag = new Scrabble.TileBag();
+      expect(tilebag.tiles.length).toBe(98);
+    });
+  });
+
+  describe('drawTile', function() {
+    it('decreases the tilebag count by 1', function() {
+      let tilebag = new Scrabble.TileBag();
+      let tile = tilebag.drawTile();
+      // TODO: Find a way to test this:
+      // expect(tile.).toBe();
+      expect(tilebag.tiles.length).toBe(97);
+    });
+    it('returns a tile from the tiles', function() {
+      let tilebag = new Scrabble.TileBag();
+      let tile = tilebag.drawTile();
+      // TODO: Find a way to test this:
+      // expect(tile.).toBe();
+    });
+  });
+});
+
 describe('Player', function() {
   it ('is defined', function() {
     expect(Scrabble.Player).toBeDefined();
