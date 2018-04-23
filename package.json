@@ -21,6 +21,7 @@
       "**/__tests__/**/*.js?(x)",
       "**/__specs__/**/*.js?(x)",
       "**/?(*.)(spec|test).js?(x)"
-    ]
+    ],
+    "collectCoverage": true
   }
 }
