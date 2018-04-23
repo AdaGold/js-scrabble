@@ -17,11 +17,13 @@ npm install
 
 ### Testing
 
-This project contains a set of tests written using the Jasmine test framework. Use these tests to enable a test-driven development workflow. To run the tests use the command:
+This project contains a set of tests written using the Jest test framework. Use these tests to enable a test-driven development workflow. To run the tests use the command:
 
 ```
 npm test
 ```
+
+It will generate a code coverage report in a `coverage` directory.  
 
 ### Error Handling
 
