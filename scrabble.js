@@ -1,14 +1,17 @@
+const fs = require('fs');
+
 const Scrabble = {
-  score: function(word) {
-    // TODO: implement score
-  }
+  score(word) {
 
-  // TODO: add the highestScoreFrom method
+  },
+  highestScoreFrom(arrayOfWords) {
 
+  },
 };
 
 Scrabble.Player = class {
-  // TODO: implement the Player class
+
 };
+
 
 module.exports = Scrabble;

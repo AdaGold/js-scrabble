@@ -3,14 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "author": "",
+  "author": "Ada Developers Academy",
   "license": "ISC",
   "dependencies": {
-    "eslint-plugin-jasmine": "^2.9.1",
-    "jasmine": "^2.8.0",
-    "jasmine-expect": "^3.8.1"
+    "fs": "0.0.1-security",
+    "npm": "^5.8.0"
   },
   "scripts": {
-    "test": "jasmine"
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  },
+  "jest": {
+    "verbose": true,
+    "testMatch": [
+      "**/__tests__/**/*.js?(x)",
+      "**/__specs__/**/*.js?(x)",
+      "**/?(*.)(spec|test).js?(x)"
+    ]
   }
 }
