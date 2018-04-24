@@ -77,6 +77,8 @@ Create a new `Player` class within the `Scrabble` object. The class should have 
 - `highestScoringWord()`: method which returns the highest scoring word the user has played
 - `highestWordScore()`: method which returns the `highestScoringWord` score
 
+You will notice many of the tests for `Player` are incomplete.  You are expected to fill in the stubbed out tests.  
+
 ### Optional Enhancements
 - Create a `Scrabble.TileBag` object that includes functionality that allows us to drawTiles and determine the remaining tiles.
 Beginning Tile Quantities:
