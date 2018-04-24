@@ -177,36 +177,18 @@ describe('Player', () => {
 
   describe('hasWon', () => {
     test('returns false when score < 100', () => {
-      const player = new Scrabble.Player('test player');
 
-      expect(player.totalScore()).toBe(0);
-      expect(player.hasWon()).toBe(false);
 
-      player.play('zzzzz');
-
-      expect(player.totalScore()).toBe(50);
-      expect(player.hasWon()).toBe(false);
-
-      player.play('zzzzji');
-
-      expect(player.totalScore()).toBe(99);
-      expect(player.hasWon()).toBe(false);
     });
 
     test('returns true when score == 100', () => {
-      const player = new Scrabble.Player('test player');
-      player.play('zzzzbbf');
 
-      expect(player.totalScore()).toBe(100);
-      expect(player.hasWon()).toBe(true);
+
     });
 
     test('returns true when score > 100', () => {
-      const player = new Scrabble.Player('test player');
-      player.play('zzzzzzz');
 
-      expect(player.totalScore()).toBe(120);
-      expect(player.hasWon()).toBe(true);
+
     });
   });
 
@@ -214,33 +196,25 @@ describe('Player', () => {
     // Tie-breaking logic is already described in the tests
     // for highestWordFrom, so we will not repeat it here.
     test('returns the highest scoring word played', () => {
-      const player = new Scrabble.Player('test player');
-      player.play('cat');
-      player.play('zzzz');
 
-      expect(player.highestScoringWord()).toBe('zzzz');
+
     });
 
     test('throws an error if no words have been played', () => {
-      const player = new Scrabble.Player('test player');
 
-      expect(() => { player.highestScoringWord(); }).toThrow();
+
     });
   });
 
   describe('highestWordScore', () => {
     test('returns the score of the highest scoring word played', () => {
-      const player = new Scrabble.Player('test player');
-      player.play('cat');
-      player.play('zzzz');
 
-      expect(player.highestWordScore()).toBe(40);
+
     });
 
     test('throws an error if no words have been played', () => {
-      const player = new Scrabble.Player('test player');
 
-      expect(() => { player.highestWordScore(); }).toThrow();
+
     });
   });
 });
