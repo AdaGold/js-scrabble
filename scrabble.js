@@ -1,4 +1,3 @@
-
 const Scrabble = {
   score: function(word) {
     // TODO: implement score
