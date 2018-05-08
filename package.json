@@ -12,5 +12,8 @@
   },
   "scripts": {
     "test": "jasmine"
+  },
+  "devDependencies": {
+    "eslint-plugin-jest": "^21.15.1"
   }
 }
