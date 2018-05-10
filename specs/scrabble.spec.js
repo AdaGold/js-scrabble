@@ -162,18 +162,21 @@ describe('Player', () => {
     });
 
     test('Is updated by play', () => {
+      // Arrange
       const player = new Scrabble.Player('test player');
+      const words = [{word: 'dog', score: 5}, {word: 'cat', score: 5}, {word: 'goat', score: 5}];
+      let totalScore = 0;
 
       expect(player.totalScore()).toBe(0);
-      player.play('dog');
+      words.forEach((testWords) => {
+        // Act
+        player.play(testWords.word);
+        totalScore += testWords.score;
 
-      expect(player.totalScore()).toBe(5);
-      player.play('cat');
+        // Assert
+        expect(player.totalScore()).toBe(totalScore);
+      });
 
-      expect(player.totalScore()).toBe(10);
-      player.play('goat');
-
-      expect(player.totalScore()).toBe(15);
     });
   });
 
