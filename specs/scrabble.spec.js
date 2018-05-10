@@ -111,7 +111,9 @@ describe('Player', () => {
     });
 
     test('Requires a name', () => {
-      expect(() => { new Scrabble.Player(); }).toThrow();
+      expect(() => {
+        new Scrabble.Player();
+      }).toThrow();
     });
   });
 
