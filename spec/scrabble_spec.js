@@ -205,7 +205,24 @@ describe('Player', function() {
       player.play('zzzz');
       expect(player.highestScoringWord()).toBe('zzzz');
     });
-
+    // It must also work for a longer list of words.
+    it('returns the highest scoring word played', function() {
+      let player = new Scrabble.Player('test player');
+      player.play('cat');
+      player.play('apple');
+      player.play('bandit');
+      player.play('zzzz');
+      expect(player.highestScoringWord()).toBe('zzzz');
+    });
+     // It must also work for a longer list of words in a different order.
+    it('returns the highest scoring word played', function() {
+      let player = new Scrabble.Player('test player');
+      player.play('zzzz');
+      player.play('cat');
+      player.play('bandit');
+      player.play('apple');
+      expect(player.highestScoringWord()).toBe('zzzz');
+    });
     it('throws an error if no words have been played', function() {
       let player = new Scrabble.Player('test player');
       expect(() => { player.highestScoringWord() }).toThrow();
