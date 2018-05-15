@@ -3,6 +3,8 @@ We are going to rebuild our Scrabble project using our knew knowledge of JavaScr
 
 This is an individual [Stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
 
+**Due:**
+
 ## Project Expectations
 
 From the project root, you should be able to execute your code with `node scrabble.js`.  Each function you create should be a method of the `Scrabble` object.
@@ -93,3 +95,6 @@ Beginning Tile Quantities:
 - Create a `Dictionary` class that includes a method for searching a list of words to determine if a given word is a valid word.
 - Create a `Board` class that has a matrix (array of arrays) of tile places. Check if a word can be played on a given tile place in a certain direction.
 - Using the existing tests as an example, write some tests for your optionals!
+
+## What Instructors Are Looking For
+Check out the [feedback template](feedback.md) which lists the items instructors will be looking for as they evaluate your project.
