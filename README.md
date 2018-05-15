@@ -3,7 +3,7 @@ We are going to rebuild our Scrabble project using our knew knowledge of JavaScr
 
 This is an individual [Stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
 
-**Due:**
+**Due:** Fri before class, 5/18
 
 ## Project Expectations
 
