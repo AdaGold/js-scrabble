@@ -1,5 +1,5 @@
 const Scrabble = {
-  score: function(word) {
+  score(word) {
     // TODO: implement score
   }
 
