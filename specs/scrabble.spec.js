@@ -11,46 +11,46 @@ describe('score', () => {
     expect(Scrabble.score('pig')).toBe(6);
   });
 
-  test('adds 50 points for a 7-letter word', () => {
+  test.skip('adds 50 points for a 7-letter word', () => {
     expect(Scrabble.score('academy')).toBe(65);
   });
 
-  test('throws on bad characters', () => {
+  test.skip('throws on bad characters', () => {
     expect(() => {
       Scrabble.score('char^');
     }).toThrow();
   });
 
-  test('handles all upper- and lower-case letters', () => {
+  test.skip('handles all upper- and lower-case letters', () => {
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('DOG')).toBe(5);
     expect(Scrabble.score('DoG')).toBe(5);
   });
 
-  test('does not allow words > 7 letters', () => {
+  test.skip('does not allow words > 7 letters', () => {
     expect(() => { Scrabble.score('abcdefgh'); }).toThrow();
   });
 
-  test('does not allow empty words', () => {
+  test.skip('does not allow empty words', () => {
     expect(() => { Scrabble.score(''); }).toThrow();
   });
 });
 
 describe('highestScoreFrom', () => {
-  test('is defined', () => {
+  test.skip('is defined', () => {
     expect(Scrabble.highestScoreFrom).toBeDefined();
   });
 
-  test('throws if no words were passed', () => {
+  test.skip('throws if no words were passed', () => {
     expect(() => { Scrabble.highestScoreFrom([]); }).toThrow();
     expect(() => { Scrabble.highestScoreFrom('not array'); }).toThrow();
   });
 
-  test('returns the only word in a length-1 array', () => {
+  test.skip('returns the only word in a length-1 array', () => {
     expect(Scrabble.highestScoreFrom(['dog'])).toBe('dog');
   });
 
-  test('returns the highest word if there are two words', () => {
+  test.skip('returns the highest word if there are two words', () => {
     // Check score assumptions
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('pig')).toBe(6);
@@ -60,7 +60,7 @@ describe('highestScoreFrom', () => {
     expect(Scrabble.highestScoreFrom(['pig', 'dog'])).toBe('pig');
   });
 
-  test('if tied, prefer a word with 7 letters', () => {
+  test.skip('if tied, prefer a word with 7 letters', () => {
     const loser = 'zzzzzz';
     const winner = 'iiiiddd';
 
@@ -73,7 +73,7 @@ describe('highestScoreFrom', () => {
     expect(Scrabble.highestScoreFrom([winner, loser])).toBe(winner);
   });
 
-  test('if tied and no word has 7 letters, prefers the word with fewer letters', () => {
+  test.skip('if tied and no word has 7 letters, prefers the word with fewer letters', () => {
     // Check score assumptions
     expect(Scrabble.score('dog')).toBe(5);
     expect(Scrabble.score('goat')).toBe(5);
@@ -83,7 +83,7 @@ describe('highestScoreFrom', () => {
     expect(Scrabble.highestScoreFrom(['goat', 'dog'])).toBe('dog');
   });
 
-  test('returns the first word of a tie with same letter count', () => {
+  test.skip('returns the first word of a tie with same letter count', () => {
     // Check score assumptions
     expect(Scrabble.score('i')).toBe(1);
     expect(Scrabble.score('dog')).toBe(5);
@@ -98,19 +98,19 @@ describe('highestScoreFrom', () => {
 });
 
 describe('Player', () => {
-  test('is defined', () => {
+  test.skip('is defined', () => {
     expect(Scrabble.Player).toBeDefined();
   });
 
   describe('Constructor', () => {
-    test('Creates a new player', () => {
+    test.skip('Creates a new player', () => {
       const name = 'test name';
       const player = new Scrabble.Player(name);
 
       expect(player.name).toBe(name);
     });
 
-    test('Requires a name', () => {
+    test.skip('Requires a name', () => {
       expect(() => {
         new Scrabble.Player();
       }).toThrow();
@@ -118,7 +118,7 @@ describe('Player', () => {
   });
 
   describe('play', () => {
-    test('Records the played word', () => {
+    test.skip('Records the played word', () => {
       const word = 'dog';
       const player = new Scrabble.Player('test player');
 
@@ -130,7 +130,7 @@ describe('Player', () => {
       expect(player.plays[0]).toBe(word);
     });
 
-    test('Requires a real word', () => {
+    test.skip('Requires a real word', () => {
       const player = new Scrabble.Player('test player');
 
       expect(player.plays.length).toBe(0);
@@ -142,7 +142,7 @@ describe('Player', () => {
       expect(player.plays.length).toBe(0);
     });
 
-    test('Returns false and does not update plays if the player has already won', () => {
+    test.skip('Returns false and does not update plays if the player has already won', () => {
       const player = new Scrabble.Player('test player');
 
       expect(player.play('zzzzzzz')).toBeTruthy(); // +120 pts
@@ -155,13 +155,13 @@ describe('Player', () => {
   });
 
   describe('totalScore', () => {
-    test('Is zero if the player has not played anything', () => {
+    test.skip('Is zero if the player has not played anything', () => {
       const player = new Scrabble.Player('test player');
 
       expect(player.totalScore()).toBe(0);
     });
 
-    test('Is updated by play', () => {
+    test.skip('Is updated by play', () => {
       // Arrange
       const player = new Scrabble.Player('test player');
       const words = [{word: 'dog', score: 5}, {word: 'cat', score: 5}, {word: 'goat', score: 5}];
@@ -181,17 +181,17 @@ describe('Player', () => {
   });
 
   describe('hasWon', () => {
-    test('returns false when score < 100', () => {
+    test.skip('returns false when score < 100', () => {
 
 
     });
 
-    test('returns true when score == 100', () => {
+    test.skip('returns true when score == 100', () => {
 
 
     });
 
-    test('returns true when score > 100', () => {
+    test.skip('returns true when score > 100', () => {
 
 
     });
@@ -200,24 +200,24 @@ describe('Player', () => {
   describe('highestScoringWord', () => {
     // Tie-breaking logic is already described in the tests
     // for highestWordFrom, so we will not repeat it here.
-    test('returns the highest scoring word played', () => {
+    test.skip('returns the highest scoring word played', () => {
 
 
     });
 
-    test('throws an error if no words have been played', () => {
+    test.skip('throws an error if no words have been played', () => {
 
 
     });
   });
 
   describe('highestWordScore', () => {
-    test('returns the score of the highest scoring word played', () => {
+    test.skip('returns the score of the highest scoring word played', () => {
 
 
     });
 
-    test('throws an error if no words have been played', () => {
+    test.skip('throws an error if no words have been played', () => {
 
 
     });
