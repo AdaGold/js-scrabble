@@ -19,11 +19,13 @@ npm install
 
 ### Testing
 
-This project contains a set of tests written using the Jasmine test framework. Use these tests to enable a test-driven development workflow. To run the tests use the command:
+This project contains a set of tests written using the Jest test framework. Use these tests to enable a test-driven development workflow. To run the tests use the command:
 
 ```
 npm test
 ```
+
+It will generate a code coverage report in a `coverage` directory.  
 
 ### Error Handling
 
@@ -76,6 +78,8 @@ Create a new `Player` class within the `Scrabble` object. The class should have 
 - `hasWon()`: method which returns `true` if the player has over 100 points, otherwise returns `false`
 - `highestScoringWord()`: method which returns the highest scoring word the user has played
 - `highestWordScore()`: method which returns the `highestScoringWord` score
+
+You will notice many of the tests for `Player` are incomplete.  You are expected to fill in the stubbed out tests.  
 
 ### Optional Enhancements
 - Create a `Scrabble.TileBag` object that includes functionality that allows us to drawTiles and determine the remaining tiles.
