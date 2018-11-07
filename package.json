@@ -6,8 +6,7 @@
   "author": "Ada Developers Academy",
   "license": "ISC",
   "dependencies": {
-    "fs": "0.0.1-security",
-    "npm": "^5.8.0"
+    "fs": "0.0.1-security"
   },
   "scripts": {
     "test": "jest"
