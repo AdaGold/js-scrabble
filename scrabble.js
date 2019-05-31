@@ -30,7 +30,6 @@ const LETTER_VALUES = {
 
 const Scrabble = {
   score: function(word) {
-    // TODO: implement score
     if (word.length == 0) {
       throw "Can't score an empty word!";
     } else if (word.length > 7) {
@@ -54,7 +53,6 @@ const Scrabble = {
     return score;
   },
 
-  // TODO: add a highestScoreFrom method
   highestScoreFrom: function(words) {
     if (!Array.isArray(words)) {
       throw 'Input is not an array!';
@@ -91,7 +89,6 @@ const Scrabble = {
 }
 
 Scrabble.Player = class {
-  // TODO: implement the Player class
   constructor(name) {
     if (name == null) {
       throw "Player requires a name!";
